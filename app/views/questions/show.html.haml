@@ -1,0 +1,14 @@
+- call_to_action = @question.id == 20 ? 'Vyhodnot test' : 'Dalsia otazka'
+
+= "#{@question.id} /"
+10
+
+%ul{ data: { controller: 'sortable' } }
+  - @options.each do |option|
+    %li.option{ data: { option_id: option.id } }= option.text
+
+= form_with model: @answer do |f|
+  - @options.each do |option|
+    = f.hidden_field :ordered_options_ids, multiple: true, value: option.id
+    = f.hidden_field :question_id, value: @question.id
+  = f.submit call_to_action

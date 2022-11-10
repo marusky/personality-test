@@ -1,0 +1,7 @@
+- if !user_authenticated?
+  = form_with model: @user do |f|
+    = f.label :nickname
+    = f.text_field :nickname
+    = f.submit 'podme na to'
+- else
+  = "Vitaj, #{current_user.nickname}!"
