@@ -6,8 +6,7 @@ class UsersController < ApplicationController
       session[:id] = @user.id
       redirect_to intro_path
     else
-      flash.now[:notice] = "Kamo, toto meno je uz obsadene. Sorko." #TODO
-      render 'pages/home'
+      render 'pages/home', status: :unprocessable_entity
     end
   end
 

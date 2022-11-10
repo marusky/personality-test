@@ -3,6 +3,8 @@
 = "#{@question.id} /"
 10
 
+= link_to 'predosla otazka', @previous_question if @previous_question
+
 %ul{ data: { controller: 'sortable' } }
   - @options.each do |option|
     %li.option{ data: { option_id: option.id } }= option.text

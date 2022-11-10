@@ -5,11 +5,18 @@ class PagesController < ApplicationController
     @user = User.new
   end
 
+  def login
+    @user = User.new
+  end
+
   def intro
     @first_question = Question.first
   end
 
   def results
+    current_user.show_results = true
+    current_user.save!
+
     users_answers = Answer.where(user: current_user)
 
     users_answers.each do |answer|
@@ -19,7 +26,5 @@ class PagesController < ApplicationController
         current_user.results[animal] += animals_order.length
       end
     end
-
-    current_user.save!
   end
 end

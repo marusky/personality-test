@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
   def show
     @answer = Answer.new
     @options = @question.options.shuffle
+    @previous_question = Question.find_by(id: @question.id.to_i - 1)
   end
 
   private

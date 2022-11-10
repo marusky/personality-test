@@ -36,3 +36,4 @@ characteristics.each do |line|
     Option.create!(question: question, text: line[index], animal: animals[index])
   end
 end
+
