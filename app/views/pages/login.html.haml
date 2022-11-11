@@ -1,9 +1,18 @@
-- if !user_authenticated?
-  = form_with url: login_path, method: :post do |f|
-    = f.label :nickname
-    = f.text_field :nickname
-    = f.submit 'pozriet vysledok'
-    - if @nickname_not_found
-      Vysledky pre takyto nick sme nenasli.
+.cut-container.cut-container__right-cut
+  - if !user_authenticated?
 
-  = link_to 'Namiesto toho urobit test', root_path
+    .intro-header
+      %span Lev,
+      %span šatník..
+      %span či ako to bolo?
+
+    = form_with url: login_path, method: :post, class: 'flex-column' do |f|
+      - if @nickname_not_found
+        .label
+          Výsledky pre takýto nick sme nenašli. :((
+      - else
+        = f.label :nickname, class: "label"
+      = f.text_field :nickname, class: "pill pill__white pill__input"
+      = f.submit 'Pozrieť si výsledok', class: 'pill pill__black'
+
+    = link_to 'Urobiť si test', root_path, class: 'small-link'

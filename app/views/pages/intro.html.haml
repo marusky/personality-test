@@ -1,13 +1,17 @@
-.div
-  Každá "strana" tohto testu obsahuje štyri vlastnosti.
-  Tvojou úlohou bude zoradiť nasledujúce vlastnosti podľa toho,
-  ako veľmi na teba sedia - čím vyššie danú vlastnosť umiestniš, tým viac ťa opisuje. Naopak, vlastnosti umiestnené nižšie ťa opisujú menej alebo vôbec.
-  %strong Vlastnosti môžeš presúvať, pokojne si to skús.
+.container
+  .instruction
+    .seal
+      = image_tag 'seal.png', width: 35
+    .text
+      Zoraď nasledovné vlastnosti podľa toho, ako veľmi na teba “sedia”. Čím viac ťa daná vlastnosť opisuje, tým vyššie ju umiestni.”
 
-%ul{ data: { controller: 'sortable' } }
-  %li pokojny
-  %li radostny
-  %li mily
-  %li zalubeny
+  %ul{ data: { controller: 'sortable' } }
+    %li.pill.pill__option Pokorný
+    %li.pill.pill__option Usmievavý
+    %li.pill.pill__option Pohľadný
+    %li.pill.pill__option Múdry
 
-= link_to 'začať kvíz', @first_question
+  .page-end
+    %p
+      Toto bola cvičná otázka, samozrejme.
+    = link_to 'Začať kvíz', @first_question, class: 'pill pill__black'

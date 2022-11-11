@@ -1,4 +1,21 @@
-your results are:
+- max_points = current_user.results.to_a.second[1]
 
-= current_user.results
-= link_to 'odhlasit sa', logout_path, data: { "turbo-method": :delete }
+.container
+  .main-animal-cover
+    = image_tag "#{current_user.results.first[0]}.png"
+    .points= current_user.results.first[1]
+
+  .results
+    - current_user.results.each_with_index do |result, index|
+      - next if index == 0
+      - animal, points = result
+      .other-animal
+        .logo= image_tag "#{animal}.png", width: 50
+        .line{ style: "width: #{60 * points / max_points }%;" }
+        .points= points
+
+
+
+
+
+  = link_to 'Odhlásiť sa', logout_path, data: { "turbo-method": :delete }, class: 'small-link'

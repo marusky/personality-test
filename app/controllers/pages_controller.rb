@@ -26,5 +26,7 @@ class PagesController < ApplicationController
         current_user.results[animal] += animals_order.length
       end
     end
+
+    current_user.results = Hash[current_user.results.sort_by{|k, v| v}.reverse]
   end
 end
