@@ -4,7 +4,7 @@
   .counter
     .big-number= @question.id
     .slash= '/'
-    .small-number 20
+    .small-number 19
 
 
   %ul{ data: { controller: 'sortable' } }
@@ -18,7 +18,7 @@
     - if @previous_question
       .half-pill
         = link_to '&larr;'.html_safe, @previous_question, class: 'left' if @previous_question
-        = f.submit call_to_action, class: 'pill right'
+        = f.submit call_to_action, class: 'right'
     - else
       = f.submit call_to_action, class: 'pill pill__black'
 
