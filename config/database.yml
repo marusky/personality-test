@@ -83,6 +83,9 @@ test:
 #
 production:
   <<: *default
-  database: personality_test_production
-  username: personality_test
-  password: <%= ENV["PERSONALITY_TEST_DATABASE_PASSWORD"] %>
+  database: <%= ENV["PGDATABASE"] %>
+  host: <%= ENV["PGHOST"] %>
+  username: <%= ENV["PGUSER"] %>
+  password: <%= ENV["PGPASSWORD"] %>
+  port: <%= ENV["PGPORT"] %>
+  url: <%= ENV["DATABASE_URL"] %>
